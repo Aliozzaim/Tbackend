@@ -4,7 +4,7 @@ const { validationResult } = require("express-validator")
 const mongoose = require("mongoose")
 
 const HttpError = require("../models/http-error")
-const getCoordsForAddress = require("../util/location")
+//const getCoordsForAddress = require("../util/location")
 const Place = require("../models/place")
 const User = require("../models/user")
 
@@ -72,18 +72,18 @@ const createPlace = async (req, res, next) => {
 
   const { title, description, address } = req.body
 
-  let coordinates
-  try {
-    coordinates = await getCoordsForAddress(address)
-  } catch (error) {
-    return next(error)
-  }
+  // let coordinates
+  // try {
+  //   coordinates = await getCoordsForAddress(address)
+  // } catch (error) {
+  //   return next(error)
+  // }
 
   const createdPlace = new Place({
     title,
     description,
     address,
-    location: coordinates,
+    location: null,
     image: req.file.path,
     creator: req.userData.userId,
   })
