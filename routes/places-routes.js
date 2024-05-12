@@ -6,8 +6,8 @@ const fileUpload = require("../middleware/file-upload")
 const checkAuth = require("../middleware/check-auth")
 
 const router = express.Router()
-
-router.get("/allplaces", placesControllers.getAllPlaces)
+console.log("places-routes.js")
+router.get("/all", placesControllers.getAllPlaces)
 router.get("/:pid", placesControllers.getPlaceById)
 
 router.get("/user/:uid", placesControllers.getPlacesByUserId)

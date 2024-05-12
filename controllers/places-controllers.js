@@ -37,7 +37,7 @@ const getPlaceById = async (req, res, next) => {
     place = await Place.findById(placeId)
   } catch (err) {
     const error = new HttpError(
-      "Something went wrong, could not find a place.",
+      "Something went wrong, could not find a pl22ace.",
       500
     )
     return next(error)
@@ -122,8 +122,6 @@ const createPlace = async (req, res, next) => {
     return next(error)
   }
 
-  console.log(user)
-
   try {
     const sess = await mongoose.startSession()
     sess.startTransaction()
@@ -155,7 +153,7 @@ const updatePlace = async (req, res, next) => {
     place = await Place.findById(placeId)
   } catch (err) {
     const error = new HttpError(
-      "Something went wrong, could not update place.",
+      "Something w2ent wrong, could not update place.",
       500
     )
     return next(error)
@@ -173,7 +171,7 @@ const updatePlace = async (req, res, next) => {
     await place.save()
   } catch (err) {
     const error = new HttpError(
-      "Something went wrong, could not update place.",
+      "Something w3ent wrong, could not update place.",
       500
     )
     return next(error)
@@ -190,7 +188,7 @@ const deletePlace = async (req, res, next) => {
     place = await Place.findById(placeId).populate("creator")
   } catch (err) {
     const error = new HttpError(
-      "Something went wrong, could not delete place.",
+      "Something wen4t wrong, could not delete place.",
       500
     )
     return next(error)
@@ -220,7 +218,7 @@ const deletePlace = async (req, res, next) => {
     await sess.commitTransaction()
   } catch (err) {
     const error = new HttpError(
-      "Something went wrong, could not delete place.",
+      "Something went5 wrong, could not delete place.",
       500
     )
     return next(error)
@@ -233,9 +231,9 @@ const deletePlace = async (req, res, next) => {
   res.status(200).json({ message: "Deleted place." })
 }
 
+exports.getAllPlaces = getAllPlaces
 exports.getPlaceById = getPlaceById
 exports.getPlacesByUserId = getPlacesByUserId
 exports.createPlace = createPlace
 exports.updatePlace = updatePlace
 exports.deletePlace = deletePlace
-exports.getAllPlaces = getAllPlaces
