@@ -27,7 +27,7 @@ const signup = async (req, res, next) => {
       new HttpError("Invalid inputs passed, please check your data.", 422)
     )
   }
-  console.log("req.file", req.body)
+
   const { name, email, password } = req.body
 
   let existingUser
